@@ -11,8 +11,8 @@ namespace GTAOnlinePlayersAutoKick
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Welcome to the utility to exclude all players from the game session in GTA Online. Type 'start'.");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Welcome to the utility to exclude all players from the game session in GTA Online. Type 'start' to start operation. Type 'clear' to clear the screen.");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             CLI();
         }
 
@@ -31,8 +31,13 @@ namespace GTAOnlinePlayersAutoKick
                     Thread.Sleep(12000);
                     Console.WriteLine("12 секунд прошло, размораживаем процесс");
                     proc.Resume();
+                    Thread.Sleep(1000);
                     Console.WriteLine("Процесс разморожен, возвращайтесь в игру");
-                    Environment.Exit(0);
+                    CLI();
+                    break;
+                case "clear":
+                    Console.Clear();
+                    CLI();
                     break;
                 default:
                     Console.WriteLine("Command not found");
